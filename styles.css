@@ -56,3 +56,11 @@
 .logo-century{object-fit:contain;padding:5px}
 .logo-gotisheel{background:linear-gradient(145deg,#122b32,#1a4650);border-color:rgba(93,190,185,.35);color:#d8f4ee;font:800 25px Manrope,sans-serif;letter-spacing:-2px;text-shadow:0 0 16px rgba(75,205,190,.35)}
 @media(max-width:640px){.company-brand{gap:10px}.company-logo{width:48px;height:42px;flex-basis:48px}.company-brand h3{font-size:clamp(17px,5vw,22px)}}
+
+
+/* Final logo sizing and brand-matched backgrounds */
+.company-logo{height:52px;width:68px;flex-basis:68px;object-fit:contain;padding:0;border:0;border-radius:5px;background:transparent}
+.logo-century{background:transparent;padding:0;object-fit:contain}
+.logo-gotisheel{background:#fff;padding:0;object-fit:contain}
+.logo-quiklee{background:transparent;padding:0;object-fit:contain}
+@media(max-width:640px){.company-logo{height:46px;width:60px;flex-basis:60px}}
