@@ -66,27 +66,3 @@ document.getElementById('contactForm')?.addEventListener('submit', event => {
   const note = document.getElementById('formNote');
   if (note) note.textContent = 'Your email app should open with the message filled in. Please send it from there.';
 });
-
-
-// Editorial hero scroll interaction: copy rises while the portrait drifts down.
-(() => {
-  const hero = document.querySelector('.hero-stage');
-  const portrait = document.querySelector('[data-parallax-portrait]');
-  const copy = document.querySelector('.hero-copy');
-  if (!hero || !portrait || !copy || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let ticking = false;
-  const update = () => {
-    const rect = hero.getBoundingClientRect();
-    const progress = Math.max(0, Math.min(1, -rect.top / Math.max(1, rect.height)));
-    portrait.style.transform = `translate(-50%, ${progress * 105}px)`;
-    copy.style.transform = `translateY(${-progress * 48}px)`;
-    ticking = false;
-  };
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
-  update();
-})();
