@@ -46,3 +46,13 @@
 @keyframes ply-stack{0%,100%{transform:translateX(-5px) skewX(-28deg);opacity:.55}50%{transform:translateX(5px) skewX(-28deg);opacity:1}}
 @media(max-width:760px){.exp-main{grid-template-columns:minmax(0,1fr);gap:22px;padding-left:clamp(0px,5vw,32px)}.exp-body{max-width:100%}.exp-top{grid-template-columns:42px 1fr;row-gap:7px}.exp-type{grid-column:2;text-align:left}}
 @media(prefers-reduced-motion:reduce){.company-motion *{animation:none!important}}
+
+
+/* Company logos beside experience names */
+.company-brand{display:flex;align-items:center;gap:13px;min-width:0}
+.company-brand h3{min-width:0}
+.company-logo{width:58px;height:48px;flex:0 0 58px;object-fit:contain;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.12);border-radius:7px;background:#f8f8f5;padding:6px}
+.logo-quiklee{object-fit:contain}
+.logo-century{object-fit:contain;padding:5px}
+.logo-gotisheel{background:linear-gradient(145deg,#122b32,#1a4650);border-color:rgba(93,190,185,.35);color:#d8f4ee;font:800 25px Manrope,sans-serif;letter-spacing:-2px;text-shadow:0 0 16px rgba(75,205,190,.35)}
+@media(max-width:640px){.company-brand{gap:10px}.company-logo{width:48px;height:42px;flex-basis:48px}.company-brand h3{font-size:clamp(17px,5vw,22px)}}
