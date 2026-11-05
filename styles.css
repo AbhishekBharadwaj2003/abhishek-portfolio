@@ -88,3 +88,46 @@ html,body{max-width:100%;overflow-x:clip}
 
 /* Multilingual full-screen welcome intro */
 .intro-splash{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 45%,#17201a 0%,#0b0d0e 62%);color:var(--text);overflow:hidden;transition:opacity .7s ease,visibility .7s ease}.intro-splash:before,.intro-splash:after{content:'';position:absolute;width:min(70vw,620px);height:min(70vw,620px);border:1px solid rgba(200,241,105,.1);border-radius:50%;pointer-events:none}.intro-splash:after{width:min(88vw,780px);height:min(88vw,780px);border-color:rgba(200,241,105,.055)}.intro-splash-mark{position:absolute;top:9%;font:800 25px var(--font);letter-spacing:-2px;color:var(--text)}.intro-splash-mark span{color:var(--lime)}.intro-name{position:relative;z-index:1;max-width:92vw;text-align:center;font:700 clamp(48px,11vw,112px)/1.15 var(--font);letter-spacing:-3px;color:var(--text);text-shadow:0 0 45px rgba(200,241,105,.12);padding:0 12px}.intro-name.font-latin{font-family:'Space Grotesk',var(--font);letter-spacing:-4px}.intro-name.font-devanagari{font-family:'Noto Sans Devanagari',sans-serif;letter-spacing:0}.intro-name.font-bengali{font-family:'Noto Sans Bengali',sans-serif;letter-spacing:0}.intro-name.font-tamil{font-family:'Noto Sans Tamil',sans-serif;letter-spacing:0}.intro-name.font-telugu{font-family:'Noto Sans Telugu',sans-serif;letter-spacing:0}.intro-name.font-arabic{font-family:'Noto Sans Arabic',sans-serif;letter-spacing:0}.intro-name.font-japanese{font-family:'Noto Sans JP',sans-serif;letter-spacing:0}.intro-name.font-korean{font-family:'Noto Sans KR',sans-serif;letter-spacing:0}.intro-caption{position:relative;z-index:1;margin-top:26px;font:10px var(--mono);letter-spacing:3px;color:var(--lime)}.intro-progress{position:absolute;bottom:12%;width:min(220px,52vw);height:2px;background:rgba(255,255,255,.12);overflow:hidden}.intro-progress span{display:block;width:0;height:100%;background:var(--lime);box-shadow:0 0 12px var(--lime);transition:width .35s ease}.intro-pop{animation:intro-pop .38s cubic-bezier(.2,.8,.2,1) both}@keyframes intro-pop{from{opacity:0;transform:translateY(14px) scale(.97);filter:blur(5px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}.intro-splash-exit{opacity:0;visibility:hidden;pointer-events:none}@media(prefers-reduced-motion:reduce){.intro-splash{transition:none}.intro-pop{animation:none}}
+
+
+/* Portfolio-wide motion: restrained, responsive and accessible */
+.scroll-progress{position:fixed;z-index:100;top:0;left:0;width:100%;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left center;box-shadow:0 0 10px rgba(200,241,105,.5);pointer-events:none}
+.hero-copy>*{animation:hero-enter .75s both;opacity:0}
+.hero-copy>.eyebrow{animation-delay:.08s}.hero-copy>.hero-kicker{animation-delay:.16s}.hero-copy>h1{animation-delay:.24s}.hero-copy>.hero-description{animation-delay:.34s}.hero-copy>.hero-actions{animation-delay:.44s}.hero-copy>.hero-meta{animation-delay:.54s}
+@keyframes hero-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.portrait-frame{animation:portrait-arrive 1s .28s cubic-bezier(.2,.8,.2,1) both,portrait-float 7s 1.3s ease-in-out infinite}
+@keyframes portrait-arrive{from{opacity:0;transform:translateY(24px) rotate(5deg)}to{opacity:1;transform:translateY(0) rotate(2deg)}}
+@keyframes portrait-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.orbit-one{animation:orbit-drift 28s linear infinite}.orbit-two{animation:orbit-drift 34s linear infinite reverse}
+@keyframes orbit-drift{to{rotate:360deg}}
+.floating-note{animation:note-float 5s ease-in-out infinite}.note-two{animation-delay:-2.5s}
+@keyframes note-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+.status-dot{animation:status-pulse 2s ease-in-out infinite}
+@keyframes status-pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,241,105,.25)}50%{box-shadow:0 0 0 8px rgba(200,241,105,0)}}
+.strip-symbol{animation:symbol-turn 12s linear infinite}
+@keyframes symbol-turn{to{transform:rotate(360deg)}}
+.button-primary{position:relative;overflow:hidden}
+.button-primary:after{content:'';position:absolute;inset:-30% auto -30% -45%;width:28%;background:rgba(255,255,255,.34);transform:skewX(-22deg);transition:left .65s ease}
+.button-primary:hover:after{left:130%}
+.project-visual:before{transition:transform .7s ease,opacity .7s ease}
+.project-card:hover .project-visual:before{transform:scale(1.12);opacity:.9}
+.project-card:hover .voice-orb{box-shadow:0 0 65px rgba(200,241,105,.48),inset -10px -15px 25px #0c150e}
+.project-card:hover .bi-window{transform:perspective(700px) rotateY(0) rotateX(0) translateY(-4px);transition:transform .45s ease}
+.experience-card,.journey-year,.cert-item{transition:border-color .35s ease,background .35s ease}
+.experience-card:hover,.journey-year:hover{border-color:rgba(200,241,105,.38)}
+.cert-item b{transition:transform .3s ease,color .3s ease}.cert-item:hover b{transform:rotate(90deg);color:var(--lime)}
+.photo-tile img,.karate-gallery img,.press-note img{transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .4s ease}
+.photo-tile:hover img,.karate-gallery figure:hover img,.press-note:hover img{transform:scale(1.045);filter:saturate(1)}
+.reveal{transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{animation:reveal-settle .75s both}
+@keyframes reveal-settle{from{filter:blur(3px)}to{filter:blur(0)}}
+@media(max-width:640px){
+  .portrait-frame{animation:portrait-arrive .8s .2s both}
+  .orbit-one,.orbit-two{animation-duration:45s}
+  .floating-note{animation-duration:7s}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero-copy>*{opacity:1;animation:none}
+  .portrait-frame{opacity:1;translate:none}
+}
