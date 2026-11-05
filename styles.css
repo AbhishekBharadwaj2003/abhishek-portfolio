@@ -66,3 +66,21 @@
 @media(max-width:640px){.company-logo{height:46px;width:60px;flex-basis:60px}}
 
 .project-repo-link{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:10px 13px;border:1px solid rgba(200,241,105,.38);color:var(--lime);font:10px var(--mono);transition:background .2s,border-color .2s}.project-repo-link:hover{background:rgba(200,241,105,.08);border-color:var(--lime)}.project-repo-link span{font-size:14px}
+
+
+/* Mobile layout: prevent horizontal overflow and keep the hero as one continuous section */
+html,body{max-width:100%;overflow-x:clip}
+@media(max-width:640px){
+  .hero{width:100%;overflow:clip;min-width:0}
+  .hero-copy{width:100%;min-width:0}
+  .hero h1{max-width:100%;font-size:clamp(39px,10.8vw,52px);letter-spacing:-2.7px;overflow-wrap:normal}
+  .hero-description{max-width:100%}
+  .hero-visual{width:100%;max-width:100%;min-width:0;height:360px;margin:8px 0 0;overflow:clip}
+  .portrait-frame{width:min(250px,72vw);height:315px}
+  .orbit{width:min(340px,94vw);height:min(340px,94vw)}
+  .orbit-two{width:min(380px,105vw);height:270px}
+  .vertical-label{right:3px}
+  .floating-note{max-width:120px}
+  .note-one{left:0}
+  .note-two{right:0}
+}
