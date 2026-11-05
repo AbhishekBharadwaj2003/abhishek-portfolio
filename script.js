@@ -2,9 +2,8 @@
 (() => {
   const splash = document.getElementById('introSplash');
   const name = document.getElementById('introName');
-  const caption = document.getElementById('introCaption');
   const progress = document.getElementById('introProgress');
-  if (!splash || !name || !caption || !progress) return;
+  if (!splash || !name || !progress) return;
   const sequence = [
     { text: 'ABHISHEK', font: 'latin', label: 'ENGLISH' },
     { text: 'अभिषेक', font: 'devanagari', label: 'HINDI' },
@@ -21,7 +20,6 @@
     const frame = sequence[index];
     name.className = 'intro-name font-' + frame.font;
     name.textContent = frame.text;
-    caption.textContent = frame.label;
     progress.style.width = ((index + 1) / sequence.length * 100) + '%';
     name.classList.remove('intro-pop');
     void name.offsetWidth;
@@ -42,7 +40,7 @@
       splash.classList.add('intro-splash-exit');
       window.setTimeout(() => splash.remove(), 750);
     }
-  }, 850);
+  }, 500);
 })();
 
 const menuButton = document.querySelector('.menu-toggle');
