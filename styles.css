@@ -64,3 +64,5 @@
 .logo-gotisheel{background:#fff;padding:0;object-fit:contain}
 .logo-quiklee{background:transparent;padding:0;object-fit:contain}
 @media(max-width:640px){.company-logo{height:46px;width:60px;flex-basis:60px}}
+
+.project-repo-link{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:10px 13px;border:1px solid rgba(200,241,105,.38);color:var(--lime);font:10px var(--mono);transition:background .2s,border-color .2s}.project-repo-link:hover{background:rgba(200,241,105,.08);border-color:var(--lime)}.project-repo-link span{font-size:14px}
