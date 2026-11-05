@@ -43,6 +43,26 @@
   }, 500);
 })();
 
+
+// Subtle entrance and scroll-progress motion.
+document.documentElement.classList.add('motion-ready');
+const progressBar = document.getElementById('scrollProgress');
+let scrollTicking = false;
+const updateScrollProgress = () => {
+  if (!progressBar) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  progressBar.style.transform = 'scaleX(' + Math.min(100, Math.max(0, progress)) / 100 + ')';
+  scrollTicking = false;
+};
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollProgress);
+    scrollTicking = true;
+  }
+}, { passive: true });
+updateScrollProgress();
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 menuButton?.addEventListener('click', () => {
