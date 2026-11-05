@@ -131,3 +131,42 @@ html,body{max-width:100%;overflow-x:clip}
   .hero-copy>*{opacity:1;animation:none}
   .portrait-frame{opacity:1;translate:none}
 }
+
+
+/* Year-by-year college journey timeline inspired by an editorial vertical timeline */
+.journey-section .section-heading{margin-bottom:30px}
+.journey-subtitle{font:9px var(--mono);letter-spacing:2px;color:#829087;margin:0 0 42px}
+.journey-timeline{position:relative;border:0;padding:18px 0 12px}
+.journey-timeline:before{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(200,241,105,.5) 8%,rgba(200,241,105,.22) 92%,transparent);transform:translateX(-50%)}
+.journey-year{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 100px minmax(0,1fr);gap:0;padding:24px 0 58px;border:0;min-height:220px;align-items:center}
+.journey-year:last-child{padding-bottom:20px}
+.journey-year-label{grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font:700 14px var(--mono);letter-spacing:1px;color:var(--text);z-index:2}
+.journey-year-label span{order:2;color:#aeb8aa;font-size:12px;letter-spacing:1px}
+.journey-year-label i{order:1;width:14px;height:14px;margin:0;border:2px solid var(--lime);background:#101414;border-radius:50%;box-shadow:0 0 0 6px rgba(200,241,105,.07),0 0 18px rgba(200,241,105,.16);transition:background .3s,transform .3s}
+.journey-year:hover .journey-year-label i{background:var(--lime);transform:scale(1.2)}
+.journey-items{grid-row:1;display:grid;grid-template-columns:1fr;gap:0;padding:25px 28px;background:linear-gradient(145deg,#151b19,#111615);border:1px solid rgba(200,241,105,.18);border-radius:10px;box-shadow:0 16px 45px rgba(0,0,0,.18);position:relative;transition:transform .35s,border-color .35s,box-shadow .35s}
+.journey-items:before{content:'';position:absolute;top:27px;width:10px;height:10px;background:#151b19;border-top:1px solid rgba(200,241,105,.18);border-right:1px solid rgba(200,241,105,.18);transform:rotate(45deg)}
+.journey-left .journey-items{grid-column:1; margin-right:16px}
+.journey-left .journey-items:before{right:-6px}
+.journey-right .journey-items{grid-column:3;margin-left:16px}
+.journey-right .journey-items:before{left:-6px;transform:rotate(225deg)}
+.journey-items>div{padding:0 0 17px 17px;position:relative;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:16px}
+.journey-items>div:last-child{padding-bottom:0;margin-bottom:0;border:0}
+.journey-items>div:before{content:'✦';position:absolute;left:0;top:1px;color:var(--lime);font-size:9px}
+.journey-kind{font-size:8px;color:#a6b18e;letter-spacing:1.4px}
+.journey-items h3{font-size:15px;margin:5px 0 3px;color:#f0f0e9}
+.journey-items p{font-size:11px;color:#a2aca2;line-height:1.65}
+.journey-year:hover .journey-items{transform:translateY(-4px);border-color:rgba(200,241,105,.42);box-shadow:0 20px 55px rgba(0,0,0,.28)}
+@media(max-width:760px){
+ .journey-subtitle{margin-bottom:28px}
+ .journey-timeline{padding:8px 0 8px 0}
+ .journey-timeline:before{left:14px;transform:none}
+ .journey-year{grid-template-columns:34px minmax(0,1fr);gap:0;padding:14px 0 32px;min-height:0;align-items:start}
+ .journey-year-label{grid-column:1;grid-row:1;align-items:center;justify-content:flex-start;padding-top:24px}
+ .journey-year-label span{display:none}
+ .journey-year-label i{width:12px;height:12px}
+ .journey-items,.journey-left .journey-items,.journey-right .journey-items{grid-column:2;grid-row:1;margin:0;padding:21px 19px}
+ .journey-items:before,.journey-left .journey-items:before,.journey-right .journey-items:before{left:-6px;right:auto;transform:rotate(225deg)}
+ .journey-items h3{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.journey-items,.journey-year-label i{transition:none}}
