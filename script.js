@@ -1,3 +1,50 @@
+// Multilingual name intro — shown once per browser tab.
+(() => {
+  const splash = document.getElementById('introSplash');
+  const name = document.getElementById('introName');
+  const caption = document.getElementById('introCaption');
+  const progress = document.getElementById('introProgress');
+  if (!splash || !name || !caption || !progress) return;
+  const sequence = [
+    { text: 'ABHISHEK', font: 'latin', label: 'ENGLISH' },
+    { text: 'अभिषेक', font: 'devanagari', label: 'HINDI' },
+    { text: 'অভিষেক', font: 'bengali', label: 'BENGALI' },
+    { text: 'அபிஷேக்', font: 'tamil', label: 'TAMIL' },
+    { text: 'అభిషేక్', font: 'telugu', label: 'TELUGU' },
+    { text: 'أبهيشيك', font: 'arabic', label: 'ARABIC' },
+    { text: 'アビシェーク', font: 'japanese', label: 'JAPANESE' },
+    { text: '아비셰크', font: 'korean', label: 'KOREAN' }
+  ];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let index = 0;
+  const showFrame = () => {
+    const frame = sequence[index];
+    name.className = 'intro-name font-' + frame.font;
+    name.textContent = frame.text;
+    caption.textContent = frame.label;
+    progress.style.width = ((index + 1) / sequence.length * 100) + '%';
+    name.classList.remove('intro-pop');
+    void name.offsetWidth;
+    name.classList.add('intro-pop');
+    index += 1;
+  };
+  if (reducedMotion || sessionStorage.getItem('ab-intro-seen') === '1') {
+    splash.remove();
+    return;
+  }
+  sessionStorage.setItem('ab-intro-seen', '1');
+  showFrame();
+  const interval = window.setInterval(() => {
+    if (index < sequence.length) {
+      showFrame();
+    } else {
+      window.clearInterval(interval);
+      splash.classList.add('intro-splash-exit');
+      window.setTimeout(() => splash.remove(), 750);
+    }
+  }, 850);
+})();
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
 menuButton?.addEventListener('click', () => {
