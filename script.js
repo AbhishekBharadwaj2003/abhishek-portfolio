@@ -40,7 +40,7 @@
       splash.classList.add('intro-splash-exit');
       window.setTimeout(() => splash.remove(), 750);
     }
-  }, 400);
+  }, 270);
 })();
 
 
